@@ -49,7 +49,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-true-gray-100 min-h-screen py-12">
+    <div className="bg-true-gray-800 min-h-screen py-12">
       <div className="mx-auto max-w-xl w-11/12 bg-true-gray-900 p-8 rounded shadow">
         <h1 className="mb-8 mb-2 text-white font-bold text-xl">
           Password Generator
