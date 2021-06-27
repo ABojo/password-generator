@@ -44,6 +44,25 @@ function App() {
     setSettings(newSettings);
   };
 
+  const bindCopyListener = () => {
+    const passInput = document.getElementById('passInput');
+    const copyButton = document.getElementById('copyButton');
+
+    const copyToClipBoard = () => {
+      passInput.select();
+      document.execCommand('copy');
+      passInput.blur();
+    };
+
+    copyButton.addEventListener('click', copyToClipBoard);
+
+    return () => {
+      copyButton.removeEventListener('click', copyToClipBoard);
+    };
+  };
+
+  useEffect(bindCopyListener, []);
+
   useEffect(() => {
     generatePassword();
   }, []);
