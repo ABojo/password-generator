@@ -1,5 +1,6 @@
 import PasswordBox from './components/PasswordBox';
 import SettingsBox from './components/SettingsBox';
+import LengthSlider from './components/LengthSlider';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   const symbolsString = '!@#$%^&*';
 
   const [settings, setSettings] = useState({
-    length: 12,
+    length: 16,
     uppercase: true,
     numbers: true,
     symbols: true,
@@ -36,6 +37,12 @@ function App() {
     setPassword(newPassword);
   };
 
+  const setLength = (e) => {
+    const newSettings = { ...settings };
+    newSettings.length = e.currentTarget.value;
+    setSettings(newSettings);
+  };
+
   useEffect(() => {
     generatePassword();
   }, []);
@@ -48,7 +55,7 @@ function App() {
         </h1>
 
         <PasswordBox password={password} />
-        <SettingsBox />
+        <LengthSlider length={settings.length} setLength={setLength} />
       </div>
     </div>
   );
