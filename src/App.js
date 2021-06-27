@@ -1,6 +1,7 @@
 import PasswordBox from './components/PasswordBox';
 import SettingsBox from './components/SettingsBox';
 import LengthSlider from './components/LengthSlider';
+import GenerateButton from './components/GenerateButton';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
 
         <PasswordBox password={password} />
         <LengthSlider length={settings.length} setLength={setLength} />
+        <GenerateButton generate={generatePassword} />
       </div>
     </div>
   );

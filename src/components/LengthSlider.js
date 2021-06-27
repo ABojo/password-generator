@@ -5,7 +5,7 @@ function LengthSlider(props) {
   return (
     <Fragment>
       <h1 className="text-true-gray-100 mb-2">Length: {length}</h1>
-      <div className="w-full bg-true-gray-700 p-5 rounded shadow flex items-center text-white text-xl">
+      <div className="w-full bg-true-gray-700 p-5 rounded shadow flex items-center text-white text-xl mb-8">
         <p className="text-white mr-3">4</p>
         <input
           type="range"
