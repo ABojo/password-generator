@@ -2,6 +2,7 @@ import PasswordBox from './components/PasswordBox';
 import SettingsBox from './components/SettingsBox';
 import LengthSlider from './components/LengthSlider';
 import GenerateButton from './components/GenerateButton';
+import SuccessMessage from './components/SuccessMessage';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     symbols: true,
   });
   const [password, setPassword] = useState('');
+  const [popUpMessage, setPopUpMessage] = useState('');
 
   //Uses short circuting to build the string that random characters will be chosen from
   const buildCharsString = () => {
@@ -69,12 +71,13 @@ function App() {
 
   return (
     <div className="bg-true-gray-800 min-h-screen py-12">
+      {popUpMessage && <SuccessMessage message={popUpMessage} />}
+
       <div className="mx-auto max-w-xl w-11/12 bg-true-gray-900 p-8 rounded shadow">
         <h1 className="mb-8 mb-2 text-white font-bold text-xl">
           Password Generator
         </h1>
-
-        <PasswordBox password={password} />
+        <PasswordBox password={password} setPopUpMessage={setPopUpMessage} />
         <LengthSlider length={settings.length} setLength={setLength} />
         <SettingsBox settings={settings} setSettings={setSettings} />
         <GenerateButton generate={generatePassword} />
